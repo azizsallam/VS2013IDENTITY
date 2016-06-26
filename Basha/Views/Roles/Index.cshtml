@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Roles Listing </h2>
+
+@*@Html.ActionLink("Create New Role", "Create") |*@
+
+@Html.ActionLink("Manage User Role", "ManageUserRoles")|
+@Html.ActionLink("User List", "UserList")|@Html.ActionLink("Create New Role", "Create") 
+<hr />
+<table class="table table-bordered  table-responsive table-hover table-striped" style="background-color:blue ;font-size :18px">
+    <tr style="background-color:aqua">
+        <th>#</th>
+        <th>
+            Role Name
+        </th>
+        <th></th>
+    </tr>
+    @{int nn = 0;}
+    @foreach (var role in Model)
+    {
+        nn = nn + 1;
+        <tr style="background-color:lightcyan">
+            <td>@nn </td>
+            <td>
+                @role.Name
+            </td>
+            <td>
+              <span onclick="return confirm('Are you sure to delete?')"><a href="/Roles/Delete?RoleName=@role.Name" class="delLink" style="color:red;">Delete</a></span> |
+               @*  @Html.ActionLink("Delete", "Delete", new { roleName = @role.Name })|*@ 
+               @Html.ActionLink("Edit", "Edit", new { roleName = @role.Name })
+            </td>
+        </tr>
+    }
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Basha.Models.ApplicationUser>
+@{
+    ViewBag.Title = "UserList";
+}
+<h2 style=" background-color:yellowgreen;text-align:center ">UserList</h2>
+<p>
+    @Html.ActionLink("Create User", "CreateUser")
+</p>
+<table class="table table-bordered  table-responsive table-hover table-striped" style="background-color:aqua  ;font-size :18px">
+    <tr style="background-color:aqua">
+        <th>#</th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+    @{int nn = 0;}
+    @foreach (var item in Model)
+    {
+        nn = nn + 1;
+        <tr style="background-color:lightcyan">
+            <td>@nn </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("EditUser", "EditUser", new { usern = item.UserName })|
+                @Html.ActionLink("Delete", "DeleteUser", new { usern = item.UserName }) |
+                @Html.ActionLink("Delete", "DeleteUser", new { usern = item.UserName })| 
+                @Html.ActionLink("Manage User Role", "ManageUserRoles", new { usern = item.UserName })
+            </td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "ManageUserRoles";
+    string uu = Convert.ToString(ViewBag.ResultMessage);
+    string usey = Convert.ToString(ViewBag.username);
+    if  (!string .IsNullOrEmpty (usey ))
+    {
+        string UserName = usey;
+    }
+  }
+<h2>Manage User Roles</h2>
+@*@Html.ActionLink("Manage User Role", "ManageUserRoles")|*@
+
+@Html.ActionLink("Create New Role", "Create") |
+@Html.ActionLink("Roles List", "Index")|@Html.ActionLink("User List", "UserList")
+<hr />
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+<h2>Role Add to User</h2>
+@using (Html.BeginForm("RoleAddToUser", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div style=" background-color:aqua">
+        <p>
+            Username : @Html.TextBox("UserName")
+            Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+        </p>
+        <input type="submit" value="Save" />
+        <p>
+            Result message: @uu
+        </p>
+    </div>
+}
+<hr />
+<h3>Get Roles for a User</h3>
+@using (Html.BeginForm("GetRoles", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    <div style=" background-color:yellowgreen ">
+        <p>
+            Username : @Html.TextBox("UserName")
+            <input type="submit" value="Get Roles for this User" />
+        </p>
+    </div>
+}
+@if (ViewBag.RolesForThisUser != null)
+{
+    <div style="background-color:yellow;">
+        <h3>Roles for this user </h3>
+        <ol>
+            @foreach (string s in ViewBag.RolesForThisUser)
+            {
+                <li>@s</li>
+            }
+        </ol>
+    </div>
+}
+<hr />
+<h3>Delete A User from a Role</h3>
+@using (Html.BeginForm("DeleteRoleForUser", "Roles"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div style=" background-color:aqua">
+        <p>
+            Username : @Html.TextBox("UserName")
+            Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
+        </p>
+        <input type="submit" value="Delete this user from Role" />
+    </div>
+}

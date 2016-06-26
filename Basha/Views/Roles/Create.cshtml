@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Role</h2>
+@Html.ActionLink("List Roles", "Index") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <hr />
+    <hr />
+    <div style=" background-color:aqua ">
+       <div>
+           <span><strong>Role Name....:</strong></span>@Html.TextBox("RoleName")
+        </div>
+     </div>
+    <hr/>
+    <hr />
+    <input type="submit" value="Save" class=" btn btn-lg btn-info " />
+}

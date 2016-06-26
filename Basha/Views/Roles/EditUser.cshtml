@@ -1,0 +1,38 @@
+﻿@model Basha.Models.ApplicationUser
+@{
+    ViewBag.Title = "EditUser";
+}
+
+<h5> Email == user.UserName in all this code </h5>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    @Html.HiddenFor(model => model.Id)
+    
+    <fieldset class="form-horizontal">
+        <legend>Edit a user.</legend>
+        <div class="form-group" style=" background-color:aqua" >
+            @Html.LabelFor(m=> m.Email , htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                @Html.EditorFor(m => m.Email , new { htmlAttributes = new { @class = "form-control" } })
+           </div>
+        </div>
+        @*<div class="control-group">
+            @Html.LabelFor(m => m.HomeTown, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.HomeTown)
+            </div>
+        </div>*@
+        @*<h4>Modify Role for User</h4>*@
+        <hr />
+        @*@Html.DropDownList("RoleId", "No Roles")*@
+        <div class="form-actions no-color">
+            <input type="submit" value="Edit" class="btn btn-lg btn-danger" />
+        </div>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

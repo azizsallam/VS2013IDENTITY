@@ -1,0 +1,58 @@
+﻿
+
+ .kkkk {
+    cursor: auto ;
+	width: 800px;
+	right: auto;
+   	top: 10px;
+	height: 100%;
+    font-style:italic;
+    color:darkblue;
+    font-size:larger;
+    font-weight:800;
+	display: block;
+	border-width: 2px,thick;
+    border-color :blue;
+    border-bottom-color:black;
+	background-color : #00ffff; 
+    
+}
+ 
+ /*.kkkk ul li  
+{
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    border-top: 1px solid #ffffff;
+    padding: 5px 15px 5px 15px;
+    background: #2C5463;
+    margin-left: 1px;
+    white-space: nowrap;
+}
+
+ .kkkk ul li:hover 
+{
+    background: #617F8A;
+}
+
+ .kkkk li:hover ul 
+{
+    display: block;
+    position: absolute;
+}
+
+ .kkkk li:hover li
+{
+    float: none;
+    font-size: 11px;
+}
+
+/*li:hover a 
+{
+    background: #617F8A;
+}
+
+li:hover li a:hover 
+{
+    background: #95A9B1;*/
+/*}*/*/
